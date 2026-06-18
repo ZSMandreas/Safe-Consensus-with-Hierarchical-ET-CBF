@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered Control Barrier Functions">
+  <meta name="description" content="A distributed control framework for safe cooperative manipulation that achieves consensus coordination with safety guarantees via hierarchical event-triggered control barrier functions (HET-CBF).">
+  <meta name="keywords" content="control barrier functions, cooperative manipulation, multi-agent systems, consensus control, event-triggered control, distributed control, safe robot control, Franka Panda, MuJoCo">
+  <meta name="author" content="Simiao Zhuang, Bingkun Huang, Zewen Yang">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MIRMI, Technical University of Munich">
+  <meta property="og:title" content="Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered Control Barrier Functions">
+  <meta property="og:description" content="A distributed control framework for safe cooperative manipulation that achieves consensus coordination with safety guarantees via hierarchical event-triggered control barrier functions (HET-CBF).">
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/het-cbf">
+  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HET-CBF Framework Overview">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered CBFs">
+  <meta name="twitter:description" content="A distributed control framework for safe cooperative manipulation with hierarchical event-triggered control barrier functions (HET-CBF).">
+  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered Control Barrier Functions">
+  <meta name="citation_author" content="Zhuang, Simiao">
+  <meta name="citation_author" content="Huang, Bingkun">
+  <meta name="citation_author" content="Yang, Zewen">
+  <meta name="citation_publication_date" content="2026">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered CBFs</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <!-- MathJax for rendering inline math -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <style>
+    .overview-placeholder {
+      border: 2px dashed #c5cbd6;
+      border-radius: 12px;
+      background: #f7f9fc;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: #6b7280;
+    }
+    .contrib-card {
+      background: #ffffff;
+      border: 1px solid #e8ebf0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      height: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .contrib-card .icon-circle {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #eef2ff; color: #4f46e5; font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .result-figure { text-align: center; }
+    .result-figure img {
+      max-width: 100%; border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    table.results-table { margin: 0 auto; }
+    table.results-table th { text-align: center; }
+    table.results-table td { text-align: center; vertical-align: middle; }
+    .cmark { color: #009600; font-weight: 700; }
+    .xmark { color: #c80000; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered Control Barrier Functions</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#" target="_blank">Simiao Zhuang</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Bingkun Huang</a>,</span>
+              <span class="author-block">
+                <a href="mailto:zewen.yang@tum.de" target="_blank">Zewen Yang</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Munich Institute of Robotics and Machine Intelligence (MIRMI),<br>Technical University of Munich (TUM), 80992 Munich, Germany</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: Update with your paper PDF link -->
+                <span class="link-block">
+                  <a href="#" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- TODO: Update with your arXiv ID -->
+              <span class="link-block">
+                <a href="#" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+
+            <!-- TODO: Update with your code repository -->
+            <span class="link-block">
+              <a href="#" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- Overview / teaser figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- TODO: drop your paper overview figure here (e.g. overview4.png) and replace the placeholder below.
+           Save it as static/images/overview.png, then uncomment the <img> tag. -->
+      <!--
+      <img src="static/images/overview.png" alt="Overview of the proposed HET-CBF framework"/>
+      -->
+      <div class="overview-placeholder">
+        <span class="icon is-large"><i class="fas fa-image fa-2x"></i></span>
+        <p style="margin-top:0.75rem;"><strong>Add your overview figure here</strong></p>
+        <p>Save <code>overview4.png</code> as <code>static/images/overview.png</code> and uncomment the image tag in <code>index.html</code>.</p>
+      </div>
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        Overview of the proposed framework. The $h_{\min}$ function encodes the minimum distance between the robot and the environmental obstacles.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End overview / teaser -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Cooperative transport and manipulation of heavy or bulky payloads by multiple manipulators requires coordinated
+            formation tracking, while simultaneously enforcing strict safety constraints in varying environments with limited
+            communication and real-time computation budgets. This paper presents a distributed control framework that achieves
+            consensus coordination with safety guarantees via hierarchical event-triggered control barrier functions (CBFs).
+            We first develop a consensus-based protocol that relies solely on local neighbor information to enforce both
+            translational and rotational consistency in task space. Building on this coordination layer, we propose a
+            three-level hierarchical event-triggered safety architecture with CBFs, which is integrated with a risk-aware
+            leader selection and smooth switching strategy to reduce online computation. The proposed approach is validated
+            through real-world hardware experiments using two Franka manipulators operating with static obstacles, as well as
+            comprehensive simulations demonstrating scalable multi-arm cooperation with dynamic obstacles. Results demonstrate
+            higher precision cooperation under strict safety constraints, achieving substantially reduced computational cost
+            and communication frequency compared to baseline methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Approach / contributions -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Approach</h2>
+    <div class="columns is-centered" style="margin-top:1rem;">
+      <div class="column">
+        <div class="contrib-card">
+          <span class="icon-circle"><i class="fas fa-project-diagram"></i></span>
+          <h3 class="title is-5">Distributed Consensus Tracking</h3>
+          <p class="content">
+            A fully distributed consensus-tracking protocol relies only on local neighbor information to enforce both
+            <em>translational</em> and <em>rotational</em> consistency in task space. Feedback linearization converts the
+            nonlinear manipulator dynamics into a task-space double integrator, enabling scalable cooperation under
+            closed-chain coupling.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="contrib-card">
+          <span class="icon-circle"><i class="fas fa-layer-group"></i></span>
+          <h3 class="title is-5">Hierarchical Event-Triggered Safety</h3>
+          <p class="content">
+            A three-level event-triggered CBF architecture (environmental, inter-agent, and intrinsic local safety) with
+            risk-aware leader selection and smooth switching activates safety constraints only when needed, reducing online
+            QP computation and communication overhead under second-order dynamics and actuation limits.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="contrib-card">
+          <span class="icon-circle"><i class="fas fa-vials"></i></span>
+          <h3 class="title is-5">Real-World &amp; Simulation Validation</h3>
+          <p class="content">
+            Validated on two Franka Emika Panda arms with static obstacles, and through extensive MuJoCo Monte Carlo studies
+            and four-arm scenarios with dynamic obstacles, demonstrating scalability, robustness, and superior performance over
+            baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End approach -->
+
+<!-- Results: four-arm safety -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Multi-Arm Safety under a Dynamic Obstacle</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="result-figure">
+          <img src="static/images/four_arm_hmin.png" alt="Minimum safety barrier value and active leader over time in the four-arm scenario"/>
+        </div>
+        <p class="content has-text-justified" style="margin-top:1rem;">
+          In the four-arm scenario, a single dynamic spherical obstacle circles the formation, repeatedly shifting the risk
+          among different arms and producing periodic drops in the minimum safety barrier $h_{\min}(t)$. The shaded regions
+          indicate which arm is the <em>active leader</em>. The leader always rotates to the arm closest to the obstacle, so that
+          $h_{\min}(t) > 0$ throughout the entire execution, guaranteeing collision-free cooperation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End four-arm safety -->
+
+<!-- Results: comparison with D-CBF baseline -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Safety Margin vs. Baseline</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="result-figure">
+          <img src="static/images/safety_margin_compare.png" alt="Minimum safety margin over time, Ours vs. baseline"/>
+        </div>
+        <p class="content has-text-justified" style="margin-top:1rem;">
+          The minimum safety margin (smallest $h$ across all arms) stays non-negative for our method, while the baseline
+          repeatedly violates the safe set (negative excursions). The hierarchical event-triggered leader-switching strategy
+          keeps the formation strictly inside the safe set.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End comparison -->
+
+<!-- Monte Carlo carousel -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Monte Carlo Evaluation (20 Trials)</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <img src="static/images/mc_consensus_pos.png" alt="Mean consensus position error across Monte Carlo trials" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Mean consensus position error per trial. Ours (blue) stays nearly an order of magnitude below NMPC and MPPI.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/mc_consensus_rot.png" alt="Mean consensus rotation error across Monte Carlo trials" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Mean consensus orientation error per trial across the compared methods.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/mc_time_to_goal.png" alt="Time to goal across Monte Carlo trials" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Task completion time per trial. Ours achieves the shortest completion time in the majority of trials.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/mc_success.png" alt="Success rate across Monte Carlo trials" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Per-trial success (safety compliance) across methods.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Monte Carlo carousel -->
+
+<!-- Quantitative table -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Four-Arm Quantitative Comparison</h2>
+    <div class="content">
+      <table class="table is-bordered is-striped is-hoverable results-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Safety</th>
+            <th>Time / step (ms)</th>
+            <th>$E_p$</th>
+            <th>$E_{\theta}$</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ours (HET-CBF)</strong></td>
+            <td><span class="cmark">&#10003;</span></td>
+            <td><strong>3.06 &plusmn; 0.51</strong></td>
+            <td><strong>0.0080 &plusmn; 0.0092</strong></td>
+            <td><strong>0.030 &plusmn; 0.072</strong></td>
+          </tr>
+          <tr>
+            <td>D-CBF</td>
+            <td><span class="cmark">&#10003;</span></td>
+            <td>3.32 &plusmn; 0.37</td>
+            <td>0.011 &plusmn; 0.0068</td>
+            <td>0.039 &plusmn; 0.086</td>
+          </tr>
+          <tr>
+            <td>NMPC</td>
+            <td><span class="xmark">&#10007;</span></td>
+            <td>42.03 &plusmn; 7.56</td>
+            <td>0.036 &plusmn; 0.014</td>
+            <td>0.13 &plusmn; 0.090</td>
+          </tr>
+          <tr>
+            <td>MPPI</td>
+            <td><span class="xmark">&#10007;</span></td>
+            <td>259.2 &plusmn; 13.90</td>
+            <td>0.010 &plusmn; 0.0092</td>
+            <td>0.047 &plusmn; 0.062</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="has-text-centered" style="color:#6b7280;">
+        Only Ours and D-CBF satisfy safety constraints throughout the task. Ours attains the lowest per-step solve time and the
+        best formation accuracy ($E_p$: position error, $E_{\theta}$: orientation error).
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End quantitative table -->
+
+<!-- Demo video placeholder -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Video</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- TODO: add your demo video. Place it at static/videos/demo.mp4 and uncomment below,
+               or replace with a YouTube embed. -->
+          <!--
+          <video poster="" controls muted loop preload="metadata" style="width:100%;border-radius:8px;">
+            <source src="static/videos/demo.mp4" type="video/mp4">
+          </video>
+          -->
+          <div class="overview-placeholder">
+            <span class="icon is-large"><i class="fas fa-video fa-2x"></i></span>
+            <p style="margin-top:0.75rem;"><strong>Add your demo video here</strong></p>
+            <p>Place <code>demo.mp4</code> in <code>static/videos/</code> and uncomment the &lt;video&gt; block in <code>index.html</code>, or embed a YouTube link.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End demo video -->
+
+<!-- BibTeX citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bibtex-header">
+      <h2 class="title">BibTeX</h2>
+      <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+        <i class="fas fa-copy"></i>
+        <span class="copy-text">Copy</span>
+      </button>
+    </div>
+    <pre id="bibtex-code"><code>@inproceedings{zhuang2026safe,
+  title     = {Safe Consensus of Cooperative Manipulation with Hierarchical
+               Event-Triggered Control Barrier Functions},
+  author    = {Zhuang, Simiao and Huang, Bingkun and Yang, Zewen},
+  booktitle = {},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+<!-- End BibTeX citation -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+  </body>
+  </html>
