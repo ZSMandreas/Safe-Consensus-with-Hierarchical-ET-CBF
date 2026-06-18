@@ -287,16 +287,18 @@
 <!-- Results: comparison with D-CBF baseline -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Safety Margin vs. Baseline</h2>
+    <h2 class="title is-3 has-text-centered">Formation Consensus Errors vs. Baselines</h2>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="result-figure">
-          <img src="static/images/safety_margin_compare.png" alt="Minimum safety margin over time, Ours vs. baseline"/>
+          <img src="static/images/consensus_errors.png" alt="Formation position error and orientation error across methods, with active-leader shading"/>
         </div>
         <p class="content has-text-justified" style="margin-top:1rem;">
-          The minimum safety margin (smallest $h$ across all arms) stays non-negative for our method, while the baseline
-          repeatedly violates the safe set (negative excursions). The hierarchical event-triggered leader-switching strategy
-          keeps the formation strictly inside the safe set.
+          Comparison of the formation position error $E_p$ and orientation error $E_{\theta}$ across methods; the shaded regions
+          indicate which arm is the active leader under HET-CBF. HET-CBF consistently achieves the smallest $E_p$ over the entire
+          task and the lowest orientation error overall, while NMPC settles at a larger steady-state error, MPPI oscillates, and
+          the Distributed CBF degrades over time. The transient increases of $E_{\theta}$ under HET-CBF coincide with
+          obstacle-avoidance behavior, consistent with prioritizing positional consensus over orientation tracking.
         </p>
       </div>
     </div>
@@ -309,29 +311,15 @@
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Monte Carlo Evaluation (20 Trials)</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <img src="static/images/mc_consensus_pos.png" alt="Mean consensus position error across Monte Carlo trials" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Mean consensus position error per trial. Ours (blue) stays nearly an order of magnitude below NMPC and MPPI.
-          </h2>
-        </div>
-        <div class="item">
-          <img src="static/images/mc_consensus_rot.png" alt="Mean consensus rotation error across Monte Carlo trials" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Mean consensus orientation error per trial across the compared methods.
-          </h2>
-        </div>
-        <div class="item">
-          <img src="static/images/mc_time_to_goal.png" alt="Time to goal across Monte Carlo trials" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Task completion time per trial. Ours achieves the shortest completion time in the majority of trials.
-          </h2>
-        </div>
-        <div class="item">
-          <img src="static/images/mc_success.png" alt="Success rate across Monte Carlo trials" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Per-trial success (safety compliance) across methods.
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="result-figure">
+            <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots comparing formation position error, orientation error, computational time, and task completion time across methods"/>
+          </div>
+          <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+            Monte Carlo evaluation comparing formation position error $E_p$, orientation error $E_{\theta}$, per-step
+            computation time, and task completion time across methods. HET-CBF attains the lowest tracking errors and the
+            smallest per-step solve time.
           </h2>
         </div>
       </div>
