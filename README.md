@@ -90,22 +90,25 @@ arms and producing periodic drops in the minimum safety barrier `h_min(t)`. The 
 arm closest to the obstacle, keeping `h_min(t) > 0` throughout the entire execution and guaranteeing collision-free
 cooperation.
 
-### Formation Consensus Errors vs. Baselines
+### Real-World Dual-Arm Formation Consensus vs. Baselines
 
 <div align="center">
   <img src="static/images/consensus_errors.png" alt="Formation position and orientation error across methods" width="80%">
 </div>
 
-HET-CBF consistently achieves the smallest position error `E_p` and the lowest orientation error `E_θ` overall, while
-NMPC settles at a larger steady-state error, MPPI oscillates, and the Distributed CBF degrades over time.
+In the hardware experiment with two Franka Emika Panda arms, HET-CBF consistently achieves the smallest position
+error `E_p` and the lowest orientation error `E_θ` overall, while NMPC settles at a larger steady-state error, MPPI
+oscillates, and the Distributed CBF degrades over time.
 
-### Monte Carlo Evaluation (20 Trials)
+### Monte Carlo Evaluation (20 Four-Arm Trials)
 
 <div align="center">
   <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots across methods" width="85%">
 </div>
 
-Across randomized trials, HET-CBF attains the lowest tracking errors and the smallest per-step solve time.
+Across 20 randomized four-arm MuJoCo trials (with perturbed initial states, goals, and obstacle positions), HET-CBF
+attains the lowest tracking errors while reducing the per-step solve time to ≈ 8 ms — about **19× faster than NMPC**
+and **25× faster than MPPI** — and also reaches the shortest task completion time (median ≈ 5.3 s).
 
 ### Four-Arm Quantitative Comparison
 
