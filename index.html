@@ -112,8 +112,13 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
     table.results-table { margin: 0 auto; }
-    table.results-table th { text-align: center; }
-    table.results-table td { text-align: center; vertical-align: middle; }
+    table.results-table th,
+    table.results-table td,
+    .content table.results-table th,
+    .content table.results-table td {
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
     .cmark { color: #009600; font-weight: 700; }
     .xmark { color: #c80000; font-weight: 700; }
   </style>
