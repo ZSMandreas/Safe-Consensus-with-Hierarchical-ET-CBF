@@ -26,12 +26,6 @@ Technical University of Munich (TUM), 80992 Munich, Germany
     <img src="https://img.shields.io/badge/%E2%9A%99%EF%B8%8F%20Code-181717?style=for-the-badge&labelColor=1e293b&logo=github&logoColor=white" height="34" alt="Code"></a>
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Venue-IROS%202026-1f6feb?style=flat-square" alt="IROS 2026">
-  <img src="https://img.shields.io/badge/Simulation-MuJoCo-orange?style=flat-square" alt="MuJoCo">
-  <img src="https://img.shields.io/badge/Hardware-Franka%20Emika%20Panda-555?style=flat-square" alt="Franka">
-</p>
-
 </div>
 
 ---
