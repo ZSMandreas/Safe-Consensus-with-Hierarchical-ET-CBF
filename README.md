@@ -14,11 +14,16 @@ Technical University of Munich (TUM), 80992 Munich, Germany
 
 <p>
   <a href="https://zsmandreas.github.io/Safe-Consensus-with-Hierarchical-ET-CBF/">
-    <img src="https://img.shields.io/badge/Project-Page-2563eb?style=for-the-badge&logo=githubpages&logoColor=white" alt="Project Page"></a>
+    <img src="https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-2563eb?style=for-the-badge&labelColor=1e293b" height="34" alt="Project Page"></a>
+  &nbsp;
   <a href="https://arxiv.org/pdf/2603.06356">
-    <img src="https://img.shields.io/badge/Paper-PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Paper"></a>
+    <img src="https://img.shields.io/badge/%F0%9F%93%84%20Paper-b31b1b?style=for-the-badge&labelColor=1e293b&logo=adobeacrobatreader&logoColor=white" height="34" alt="Paper"></a>
+  &nbsp;
   <a href="https://doi.org/10.48550/arXiv.2603.06356">
-    <img src="https://img.shields.io/badge/arXiv-2603.06356-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"></a>
+    <img src="https://img.shields.io/badge/arXiv-2603.06356-b31b1b?style=for-the-badge&labelColor=1e293b&logo=arxiv&logoColor=white" height="34" alt="arXiv"></a>
+  &nbsp;
+  <a href="https://github.com/ZSMandreas/Safe-Consensus-with-Hierarchical-ET-CBF">
+    <img src="https://img.shields.io/badge/%E2%9A%99%EF%B8%8F%20Code-181717?style=for-the-badge&labelColor=1e293b&logo=github&logoColor=white" height="34" alt="Code"></a>
 </p>
 
 <p>
@@ -110,7 +115,7 @@ Across randomized trials, HET-CBF attains the lowest tracking errors and the sma
 
 ### Four-Arm Quantitative Comparison
 
-| Method | Safety | Time / step (ms) | $E_p$ | $E_\theta$ |
+| Method | Safety | Time / step (ms) | `E_p` | `E_θ` |
 |:---|:---:|:---:|:---:|:---:|
 | **Ours (HET-CBF)** | ✅ | **3.06 ± 0.51** | **0.0080 ± 0.0092** | **0.030 ± 0.072** |
 | D-CBF | ✅ | 3.32 ± 0.37 | 0.011 ± 0.0068 | 0.039 ± 0.086 |
