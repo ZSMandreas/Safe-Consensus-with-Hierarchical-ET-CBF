@@ -183,18 +183,28 @@
 </section>
 
 
-<!-- Overview / teaser figure -->
+<!-- Teaser videos (first section after title/links) -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/overview.png" alt="Overview of the proposed HET-CBF framework"/>
-      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-        Overview of the proposed framework. The $h_{\min}$ function encodes the minimum distance between the robot and the environmental obstacles.
-      </h2>
+      <div class="columns is-multiline is-centered">
+        <div class="column is-half">
+          <video controls muted loop playsinline preload="metadata" style="width:100%; height:380px; object-fit:contain; background:#000; border-radius:8px;">
+            <source src="static/videos/final_large_combine.mp4" type="video/mp4">
+          </video>
+          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Large obstacle scenario</p>
+        </div>
+        <div class="column is-half">
+          <video controls muted loop playsinline preload="metadata" style="width:100%; height:380px; object-fit:contain; background:#000; border-radius:8px;">
+            <source src="static/videos/final_narrow_combine.mp4" type="video/mp4">
+          </video>
+          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Narrow passage scenario</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End overview / teaser -->
+<!-- End teaser videos -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -202,6 +212,12 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
+        <div class="result-figure" style="margin-bottom:1.5rem;">
+          <img src="static/images/overview.png" alt="Overview of the proposed HET-CBF framework"/>
+          <p class="subtitle has-text-centered" style="margin-top:0.75rem;">
+            Overview of the proposed framework. The $h_{\min}$ function encodes the minimum distance between the robot and the environmental obstacles.
+          </p>
+        </div>
         <div class="content has-text-justified">
           <p>
             Cooperative transport and manipulation of heavy or bulky payloads by multiple manipulators requires coordinated
@@ -289,10 +305,12 @@
 </section>
 <!-- End four-arm safety -->
 
-<!-- Results: comparison with D-CBF baseline -->
+<!-- Results: dual-arm consensus & Monte Carlo -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Formation Consensus Errors vs. Baselines</h2>
+    <h2 class="title is-3 has-text-centered">Dual-Arm &amp; Monte Carlo Results</h2>
+
+    <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Formation Consensus Errors vs. Baselines</h3>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="result-figure">
@@ -307,31 +325,23 @@
         </p>
       </div>
     </div>
-  </div>
-</section>
-<!-- End comparison -->
 
-<!-- Monte Carlo carousel -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Monte Carlo Evaluation (20 Trials)</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div class="result-figure">
-            <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots comparing formation position error, orientation error, computational time, and task completion time across methods"/>
-          </div>
-          <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-            Monte Carlo evaluation comparing formation position error $E_p$, orientation error $E_{\theta}$, per-step
-            computation time, and task completion time across methods. HET-CBF attains the lowest tracking errors and the
-            smallest per-step solve time.
-          </h2>
+    <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Monte Carlo Evaluation (20 Trials)</h3>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="result-figure">
+          <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots comparing formation position error, orientation error, computational time, and task completion time across methods"/>
         </div>
+        <p class="content has-text-justified" style="margin-top:1rem;">
+          Monte Carlo evaluation comparing formation position error $E_p$, orientation error $E_{\theta}$, per-step
+          computation time, and task completion time across methods. HET-CBF attains the lowest tracking errors and the
+          smallest per-step solve time.
+        </p>
       </div>
     </div>
   </div>
 </section>
-<!-- End Monte Carlo carousel -->
+<!-- End dual-arm & Monte Carlo results -->
 
 <!-- Quantitative table -->
 <section class="section">
@@ -427,22 +437,6 @@
           <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Soft-object cooperative transport</p>
         </div>
       </div>
-      <div class="columns is-centered">
-        <div class="column is-full">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; height:380px; object-fit:contain; background:#000; border-radius:8px;">
-            <source src="static/videos/simulation_large_obs.mp4" type="video/mp4">
-          </video>
-          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Large static obstacle avoidance</p>
-        </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-full">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; height:380px; object-fit:contain; background:#000; border-radius:8px;">
-            <source src="static/videos/simulation_narrow_path.mp4" type="video/mp4">
-          </video>
-          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Narrow passage traversal</p>
-        </div>
-      </div>
 
       <!-- Demonstration -->
       <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Multi-Arm Demonstration</h3>
@@ -464,7 +458,7 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3 has-text-centered">Video</h2>
+      <h2 class="title is-3 has-text-centered">More Video</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <video poster="" controls muted loop preload="metadata" style="width:100%;border-radius:8px;">
