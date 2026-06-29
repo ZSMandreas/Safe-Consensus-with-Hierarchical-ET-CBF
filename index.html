@@ -60,7 +60,7 @@
 
   <!-- Critical CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css?v=2026-style">
 
   <!-- Non-critical CSS -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -121,6 +121,11 @@
     }
     .cmark { color: #009600; font-weight: 700; }
     .xmark { color: #c80000; font-weight: 700; }
+    .highlight-video-card video {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -138,16 +143,21 @@
           <div class="column has-text-centered">
             <h1 class="title is-2 publication-title">Safe Consensus of Cooperative Manipulation with Hierarchical Event-Triggered Control Barrier Functions</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="#" target="_blank">Simiao Zhuang</a>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Bingkun Huang</a>,</span>
-              <span class="author-block">
-                <a href="mailto:zewen.yang@tum.de" target="_blank">Zewen Yang</a></span>
+              <span class="author-block">Simiao Zhuang,</span>
+              <span class="author-block">Bingkun Huang,</span>
+              <span class="author-block">Zewen Yang&dagger;</span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">&dagger; Corresponding author: zewen.yang@tum.de</span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Munich Institute of Robotics and Machine Intelligence (MIRMI),<br>Technical University of Munich (TUM), 80992 Munich, Germany</span>
+              <span class="author-block">Munich Institute of Robotics and Machine Intelligence (MIRMI),<br>Technical University of Munich (TUM)</span>
+            </div>
+
+            <div class="publication-venue">
+              IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026)
             </div>
 
             <div class="column has-text-centered">
@@ -175,6 +185,13 @@
               <span>Code</span>
             </a>
           </span>
+
+          <span class="link-block">
+            <a href="#videos" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fas fa-video"></i></span>
+              <span>Video</span>
+            </a>
+          </span>
         </div>
       </div>
     </div>
@@ -183,30 +200,39 @@
 </section>
 
 
-<!-- Teaser videos (first section after title/links) -->
-<section class="hero teaser">
-  <div class="container is-widescreen">
-    <div class="hero-body">
-      <div class="columns is-centered" style="margin-bottom:1.5rem;">
-        <div class="column is-11">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
-            <source src="static/videos/final_large_combine.mp4" type="video/mp4">
-          </video>
-          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Large obstacle scenario</p>
+<!-- Overview of the proposed framework -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview of the Proposed Framework</h2>
+        <div class="result-figure" style="margin-bottom:1.5rem;">
+          <img src="static/images/overview.png" alt="Overview of the proposed HET-CBF framework"/>
+          <p class="subtitle has-text-centered" style="margin-top:0.75rem;">
+            The proposed HET-CBF framework couples distributed consensus tracking with hierarchical, event-triggered safety constraints. The $h_{\min}$ function encodes the minimum distance between the robot and the environmental obstacles.
+          </p>
         </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-11">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
-            <source src="static/videos/final_narrow_combine.mp4" type="video/mp4">
-          </video>
-          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Narrow passage scenario</p>
+
+        <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Highlight Videos</h3>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-full highlight-video-card">
+            <video controls muted loop autoplay playsinline preload="metadata">
+              <source src="static/videos/final_large_combine.mp4" type="video/mp4">
+            </video>
+            <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Large obstacle scenario</p>
+          </div>
+          <div class="column is-full highlight-video-card">
+            <video controls muted loop autoplay playsinline preload="metadata">
+              <source src="static/videos/final_narrow_combine.mp4" type="video/mp4">
+            </video>
+            <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Narrow passage scenario</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End teaser videos -->
+<!-- End overview -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -214,12 +240,6 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="result-figure" style="margin-bottom:1.5rem;">
-          <img src="static/images/overview.png" alt="Overview of the proposed HET-CBF framework"/>
-          <p class="subtitle has-text-centered" style="margin-top:0.75rem;">
-            Overview of the proposed framework. The $h_{\min}$ function encodes the minimum distance between the robot and the environmental obstacles.
-          </p>
-        </div>
         <div class="content has-text-justified">
           <p>
             Cooperative transport and manipulation of heavy or bulky payloads by multiple manipulators requires coordinated
@@ -242,10 +262,10 @@
 </section>
 <!-- End paper abstract -->
 
-<!-- Approach / contributions -->
+<!-- Contributions -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Approach</h2>
+    <h2 class="title is-3 has-text-centered">Contributions</h2>
     <div class="columns is-centered" style="margin-top:1rem;">
       <div class="column">
         <div class="contrib-card">
@@ -284,12 +304,48 @@
     </div>
   </div>
 </section>
-<!-- End approach -->
+<!-- End contributions -->
 
-<!-- Results: four-arm safety -->
+<!-- Results: dual-arm consensus & Monte Carlo -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Multi-Arm Safety under a Dynamic Obstacle</h2>
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Dual-Arm &amp; Monte Carlo Results</h3>
+
+    <div class="columns is-centered is-multiline has-text-centered" style="margin-top:1.5rem;">
+      <div class="column is-half">
+        <h4 class="title is-5 has-text-centered">Formation Consensus Errors vs. Baselines</h4>
+        <div class="result-figure">
+          <img src="static/images/consensus_errors.png" alt="Formation position error and orientation error across methods, with active-leader shading"/>
+        </div>
+        <p class="content has-text-justified" style="margin-top:1rem;">
+          Comparison of the formation position error $E_p$ and orientation error $E_{\theta}$ across methods; the shaded regions
+          indicate which arm is the active leader under HET-CBF. HET-CBF consistently achieves the smallest $E_p$ over the entire
+          task and the lowest orientation error overall, while NMPC settles at a larger steady-state error, MPPI oscillates, and
+          the Distributed CBF degrades over time.
+        </p>
+      </div>
+
+      <div class="column is-half">
+        <h4 class="title is-5 has-text-centered">Monte Carlo Evaluation</h4>
+        <div class="result-figure">
+          <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots comparing formation position error, orientation error, computational time, and task completion time across methods"/>
+        </div>
+        <p class="content has-text-justified" style="margin-top:1rem;">
+          Monte Carlo evaluation comparing formation position error $E_p$, orientation error $E_{\theta}$, per-step
+          computation time, and task completion time across methods on 20 trials. HET-CBF attains the lowest tracking errors and the
+          smallest per-step solve time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End dual-arm & Monte Carlo results -->
+
+<!-- Results: four-arm safety -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h3 class="title is-4 has-text-centered">Multi-Arm Safety under a Dynamic Obstacle</h3>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="result-figure">
@@ -307,48 +363,10 @@
 </section>
 <!-- End four-arm safety -->
 
-<!-- Results: dual-arm consensus & Monte Carlo -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Dual-Arm &amp; Monte Carlo Results</h2>
-
-    <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Formation Consensus Errors vs. Baselines</h3>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="result-figure">
-          <img src="static/images/consensus_errors.png" alt="Formation position error and orientation error across methods, with active-leader shading"/>
-        </div>
-        <p class="content has-text-justified" style="margin-top:1rem;">
-          Comparison of the formation position error $E_p$ and orientation error $E_{\theta}$ across methods; the shaded regions
-          indicate which arm is the active leader under HET-CBF. HET-CBF consistently achieves the smallest $E_p$ over the entire
-          task and the lowest orientation error overall, while NMPC settles at a larger steady-state error, MPPI oscillates, and
-          the Distributed CBF degrades over time. The transient increases of $E_{\theta}$ under HET-CBF coincide with
-          obstacle-avoidance behavior, consistent with prioritizing positional consensus over orientation tracking.
-        </p>
-      </div>
-    </div>
-
-    <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Monte Carlo Evaluation (20 Trials)</h3>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="result-figure">
-          <img src="static/images/mc_violin.png" alt="Monte Carlo violin plots comparing formation position error, orientation error, computational time, and task completion time across methods"/>
-        </div>
-        <p class="content has-text-justified" style="margin-top:1rem;">
-          Monte Carlo evaluation comparing formation position error $E_p$, orientation error $E_{\theta}$, per-step
-          computation time, and task completion time across methods. HET-CBF attains the lowest tracking errors and the
-          smallest per-step solve time.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End dual-arm & Monte Carlo results -->
-
 <!-- Quantitative table -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Four-Arm Quantitative Comparison</h2>
+    <h3 class="title is-4 has-text-centered">Four-Arm Quantitative Comparison</h3>
     <div class="content">
       <table class="table is-bordered is-striped is-hoverable results-table">
         <thead>
@@ -401,33 +419,29 @@
 <!-- End quantitative table -->
 
 <!-- Experiment videos (grouped grid) -->
-<section class="hero is-small">
+<section class="hero is-small" id="videos">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Experiment Videos</h2>
+      <h3 class="title is-4 has-text-centered">Experiment Videos</h3>
 
-      <!-- Simulation -->
-      <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Simulation</h3>
       <div class="columns is-multiline is-centered">
-        <div class="column is-half">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
+        <div class="column is-two-thirds">
+          <video controls muted loop autoplay playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
+            <source src="static/videos/simulation_soft_object.mp4" type="video/mp4">
+          </video>
+          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Dual-arm soft-object cooperative transport</p>
+        </div>
+        <div class="column is-two-thirds">
+          <video controls muted loop autoplay playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
             <source src="static/videos/four_arms_obs_moving.mp4" type="video/mp4">
           </video>
           <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Four-arm cooperation with a moving obstacle</p>
         </div>
-        <div class="column is-half">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
-            <source src="static/videos/simulation_soft_object.mp4" type="video/mp4">
-          </video>
-          <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Soft-object cooperative transport</p>
-        </div>
       </div>
 
-      <!-- Demonstration -->
-      <h3 class="title is-4 has-text-centered" style="margin-top:1.5rem;">Multi-Arm Demonstration</h3>
       <div class="columns is-centered">
         <div class="column is-two-thirds">
-          <video controls muted loop playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
+          <video controls muted loop autoplay playsinline preload="metadata" style="width:100%; display:block; border-radius:8px;">
             <source src="static/videos/demo_six_arms.mp4" type="video/mp4">
           </video>
           <p class="subtitle is-6 has-text-centered" style="margin-top:0.5rem;">Six-arm cooperative manipulation demonstration</p>
@@ -443,7 +457,7 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3 has-text-centered">Video</h2>
+      <h2 class="title is-3 has-text-centered">Full Demonstration Video</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <video poster="" controls muted loop preload="metadata" style="width:100%;border-radius:8px;">
@@ -482,9 +496,8 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            &copy; 2026 Simiao Zhuang, Bingkun Huang, and Zewen Yang. All rights reserved.
+            Website template based on the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
           </p>
         </div>
       </div>
