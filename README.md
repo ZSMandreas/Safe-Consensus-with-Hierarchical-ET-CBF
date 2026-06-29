@@ -7,11 +7,12 @@
   with formal safety guarantees via hierarchical event-triggered control barrier functions (HET-CBF).</em>
 </p>
 
-**Simiao Zhuang · Bingkun Huang · [Zewen Yang](mailto:zewen.yang@tum.de)**
+**Simiao Zhuang · Bingkun Huang · Zewen Yang†**
+
+† Corresponding author
 
 Munich Institute of Robotics and Machine Intelligence (MIRMI)<br>
-Technical University of Munich (TUM), 80992 Munich, Germany
-
+Technical University of Munich (TUM)
 <p>
   <a href="https://zsmandreas.github.io/Safe-Consensus-with-Hierarchical-ET-CBF/">
     <img src="https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-2563eb?style=for-the-badge&labelColor=1e293b" height="34" alt="Project Page"></a>
@@ -64,6 +65,8 @@ hardware experiments using two Franka manipulators with static obstacles, and co
 demonstrating scalable multi-arm cooperation with dynamic obstacles. Results show higher-precision cooperation
 under strict safety constraints, with substantially reduced computational cost and communication frequency
 compared to baseline methods.
+
+
 
 ---
 
@@ -137,9 +140,3 @@ If you find this work useful, please consider citing:
   year      = {2026}
 }
 ```
-
----
-
-<div align="center">
-  <sub>Munich Institute of Robotics and Machine Intelligence (MIRMI) · Technical University of Munich</sub>
-</div>
