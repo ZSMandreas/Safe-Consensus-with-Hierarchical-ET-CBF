@@ -367,7 +367,7 @@ video + .subtitle,
   display: block !important;
   border-radius: var(--border-radius-lg) !important;
   border: 1px solid var(--border-color);
-  background: #0f172a;
+  background: transparent;
   box-shadow: var(--shadow-lg);
 }
 
